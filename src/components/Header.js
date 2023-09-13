@@ -15,7 +15,7 @@ const Header = () => {
   
   useEffect(()=>{
     // console.log(searchQuery)
-   const timer =  setTimeout(()=>fetchSearchSuggessions() , 300);
+   const timer =  setTimeout(()=>fetchSearchSuggessions() , 200);
 
    return () => {
     clearTimeout(timer)
@@ -33,7 +33,7 @@ const Header = () => {
     dispatch(toggleMenu());
   };
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between sticky">
       <div className="flex items-center">
         <GiHamburgerMenu
           onClick={() => toggleMenuHandler()}
