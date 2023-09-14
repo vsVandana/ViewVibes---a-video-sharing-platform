@@ -14,8 +14,8 @@ const Header = () => {
   const dispatch = useDispatch();
   
   useEffect(()=>{
-    // console.log(searchQuery)
-   const timer =  setTimeout(()=>fetchSearchSuggessions() , 200);
+    console.log(searchQuery)
+   const timer =  setTimeout(() => fetchSearchSuggessions() , 200);
 
    return () => {
     clearTimeout(timer)
@@ -24,7 +24,7 @@ const Header = () => {
   },[searchQuery])
 
   const fetchSearchSuggessions = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API+"iphone");
+    const data = await fetch(YOUTUBE_SEARCH_API+ searchQuery);
     const json = await data.json();
     // console.log(json[1]);
     setSuggestions(json[1]);
@@ -63,9 +63,9 @@ const Header = () => {
       </div>
         {showSuggestion && 
      (<div className="fixed">
-        <ul className=" bg-white w-96 p-4 rounded-md">
+        <ul className=" bg-white w-96 my-1 shadow-lg rounded-md">
           {suggestions.map((s) => (
-          <li key={s} className="px-2 py-1 hover:bg-slate-200">
+          <li key={s} className="px-2 py-2 hover:bg-slate-200">
             {s}
             </li>
           ))}
