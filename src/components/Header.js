@@ -15,10 +15,10 @@ const Header = () => {
   
   useEffect(()=>{
     console.log(searchQuery)
-   const timer =  setTimeout(() => fetchSearchSuggessions() , 200);
+    const timer = setTimeout(() => fetchSearchSuggessions() , 200);
 
    return () => {
-    clearTimeout(timer)
+    clearTimeout(timer);
    };
 
   },[searchQuery])
@@ -33,7 +33,7 @@ const Header = () => {
     dispatch(toggleMenu());
   };
   return (
-    <div className="flex items-center justify-between sticky">
+    <div className="flex items-center justify-between fixed top-0 py-2 w-full bg-white">
       <div className="flex items-center">
         <GiHamburgerMenu
           onClick={() => toggleMenuHandler()}
@@ -63,7 +63,7 @@ const Header = () => {
       </div>
         {showSuggestion && 
      (<div className="fixed">
-        <ul className=" bg-white w-96 my-1 shadow-lg rounded-md">
+        <ul className=" bg-white w-96 s shadow-lg rounded-md">
           {suggestions.map((s) => (
           <li key={s} className="px-2 py-2 hover:bg-slate-200">
             {s}

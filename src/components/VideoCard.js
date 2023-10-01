@@ -5,7 +5,7 @@ const VideoCard = ({ data }) => {
 
   return (
     <div
-      className="w-72 p-1 text-sm tracking-wider"
+      className=" text-sm tracking-wider"
       // style={{ "font-family": "'Mukta', sans-serif" }}
     >
       <img className="rounded-2xl py-1" src={url} alt="video" />

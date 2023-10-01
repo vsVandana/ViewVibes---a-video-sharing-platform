@@ -17,11 +17,11 @@ const VideoContainer = () => {
   };
 
   return (
-    <div className="p-3">
-      <ul className="flex flex-wrap">
+    <div className="p-2 mt-14">
+      <ul className="flex flex-wrap justify-evenly">
         {videos?.map((items) => {
           return (
-            <li key={items.id} className="m-2">
+            <li key={items.id} className="">
               <Link to={"/watch?v=" + items.id}>
                 <VideoCard data={items} />
               </Link>

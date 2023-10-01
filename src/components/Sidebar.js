@@ -29,7 +29,7 @@ const Sidebar = () => {
 
     if(!isMenuOpen) return null;
     return(
-        <div className='sticky py-4'>    
+        <div className='w-1/4 md:w-1/5 bg-white h-screen fixed top-14 left-0 py-4 '>    
           <ul className='pb-4 '>{
            sidebarData.map((item, index)=>
             <li  key={index} className='flex items-center p-2 hover:cursor-pointer hover:bg-gray-200 hover:rounded-md'>
