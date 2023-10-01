@@ -17,8 +17,8 @@ const VideoContainer = () => {
   };
 
   return (
-    <div className="p-2 mt-14">
-      <ul className="flex flex-wrap justify-evenly">
+    <div className="p-2">
+      <ul className="flex flex-wrap ">
         {videos?.map((items) => {
           return (
             <li key={items.id} className="">

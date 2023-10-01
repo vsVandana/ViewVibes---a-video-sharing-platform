@@ -2,10 +2,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BiSolidUserCircle } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import myLogo from "../utils/images/y-logo.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constant";
+import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,9 +14,21 @@ const Header = () => {
   const [showSuggestion, setShowSuggestion] = useState(false);
   const dispatch = useDispatch();
   
+  /////The search is using -
+  /////1. Live API
+  /////2. Debounching
+  /////3. Caching
+  
+  const searchCache = useSelector((store)=>store.search)
   useEffect(()=>{
     console.log(searchQuery)
-    const timer = setTimeout(() => fetchSearchSuggessions() , 200);
+    const timer = setTimeout(() => {
+      if(searchCache[searchQuery]){
+        setSuggestions(searchCache[searchQuery])
+      }else{
+        fetchSearchSuggessions() 
+      }
+    }, 200);
 
    return () => {
     clearTimeout(timer);
@@ -28,6 +41,13 @@ const Header = () => {
     const json = await data.json();
     // console.log(json[1]);
     setSuggestions(json[1]);
+
+    //Update cache
+    dispatch(
+      cacheResults({
+        [searchQuery]: json[1],
+      })
+    )
   }
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -46,7 +66,7 @@ const Header = () => {
         />
       </div>
       <div>
-      <div className=" flex items-center">
+      <div className="flex items-center">
         <input
           className="w-96 border-2 text-gray-500 border-gray-300 rounded-s-2xl px-5  py-1 hover:border-blue-300 active:border-blue-500 focus:border-blue-400"
           type="text"
@@ -63,9 +83,9 @@ const Header = () => {
       </div>
         {showSuggestion && 
      (<div className="fixed">
-        <ul className=" bg-white w-96 s shadow-lg rounded-md">
+        <ul className=" bg-white w-96 s shadow-lg rounded-md ">
           {suggestions.map((s) => (
-          <li key={s} className="px-2 py-2 hover:bg-slate-200">
+          <li key={s} className="p-2 hover:bg-slate-200">
             {s}
             </li>
           ))}
