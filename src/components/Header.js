@@ -57,7 +57,7 @@ const Header = () => {
       <div className="flex items-center">
         <GiHamburgerMenu
           onClick={() => toggleMenuHandler()}
-          className="text-4xl mx-4 p-2 hover:cursor-pointer hover:bg-slate-200 hover:rounded-full"
+          className="text-4xl mx-4 p-2 hover:cursor-pointer hover:bg-slate-200 hover:rounded-full "
         />
         <img
           className="w-28 ms-1 me-3 hover:cursor-pointer"
