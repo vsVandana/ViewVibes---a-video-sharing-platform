@@ -33,7 +33,7 @@ const Header = () => {
     clearTimeout(timer);
    };
 
-  },[searchQuery, fetchSearchSuggessions, searchCache ])
+  },[searchQuery, searchCache ])
 
   const fetchSearchSuggessions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API+ searchQuery);
