@@ -46,7 +46,7 @@ const Header = () => {
     clearTimeout(timer);
    };
 
-  },[searchQuery, searchCache ])
+  },[searchQuery,fetchSearchSuggessions, searchCache ])
 
   // const toggleMenuHandler = () => {
   //   console.log("Toggle menu clicked");
