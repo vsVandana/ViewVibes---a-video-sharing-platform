@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 const MainContainer = () => {
     const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
-    if(!isMenuOpen) return (<div className="">
+    if(!isMenuOpen) return (<div className="absolute left-20">
     <ButtonList />
     <VideoContainer />
 </div>) ;
     return (
 
-        <div className="pl-72">
+        <div>
             <ButtonList />
-            <VideoContainer className="" />
+            <VideoContainer/>
         </div>
     )
 }

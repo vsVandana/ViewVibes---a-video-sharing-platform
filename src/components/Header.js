@@ -1,6 +1,6 @@
-import { GiHamburgerMenu } from "react-icons/gi";
 import { BiSolidUserCircle } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import myLogo from "../utils/images/y-logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
@@ -50,17 +50,18 @@ const Header = () => {
     )
   }
   const toggleMenuHandler = () => {
+    console.log("Toggle menu clicked");
     dispatch(toggleMenu());
   };
   return (
-    <div className="flex items-center justify-between fixed top-0 py-2 w-full bg-white">
-      <div className="flex items-center">
-        <GiHamburgerMenu
+    <div className="flex items-center justify-between fixed top-0 py-2 w-full z-10 bg-white">
+      <div className="">
+        {/* <GiHamburgerMenu
           onClick={() => toggleMenuHandler()}
           className="text-4xl mx-4 p-2 hover:cursor-pointer hover:bg-slate-200 hover:rounded-full "
-        />
+        /> */}
         <img
-          className="w-28 ms-1 me-3 hover:cursor-pointer"
+          className="w-28 mx-24 hover:cursor-pointer"
           src={myLogo}
           alt="youtube-logo"
         />

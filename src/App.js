@@ -27,7 +27,7 @@ function App() {
   ])
   return (
     <Provider store={store}>
-    <div className='container mx-auto p-2'>
+    <div className=''>
       <Header />
       <RouterProvider router={appRouter} />
     </div>

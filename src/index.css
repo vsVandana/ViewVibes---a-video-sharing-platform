@@ -1,0 +1,13 @@
+body{
+    
+}
+.classify-produds{
+    margin: 0;
+    padding: 0;
+}
+  
+  .classify-produds::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+ 
