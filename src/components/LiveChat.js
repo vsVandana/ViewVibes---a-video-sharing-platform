@@ -20,7 +20,7 @@ const LiveChat = () => {
     }, 500);
 
     return () => clearInterval(i);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="my-4">

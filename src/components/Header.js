@@ -2,7 +2,7 @@ import { BiSolidUserCircle } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import myLogo from "../utils/images/y-logo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleMenu } from "../utils/appSlice";
+// import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constant";
 import { cacheResults } from "../utils/searchSlice";
@@ -33,7 +33,7 @@ const Header = () => {
     clearTimeout(timer);
    };
 
-  },[searchQuery])
+  },[searchQuery, fetchSearchSuggessions, searchCache ])
 
   const fetchSearchSuggessions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API+ searchQuery);
