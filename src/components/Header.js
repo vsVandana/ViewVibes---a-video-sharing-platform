@@ -1,6 +1,5 @@
 import { BiSolidUserCircle } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
-import { GiHamburgerMenu } from "react-icons/gi";
 import myLogo from "../utils/images/y-logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
@@ -49,10 +48,10 @@ const Header = () => {
       })
     )
   }
-  const toggleMenuHandler = () => {
-    console.log("Toggle menu clicked");
-    dispatch(toggleMenu());
-  };
+  // const toggleMenuHandler = () => {
+  //   console.log("Toggle menu clicked");
+  //   dispatch(toggleMenu());
+  // };
   return (
     <div className="flex items-center justify-between fixed top-0 py-2 w-full z-10 bg-white">
       <div className="">
