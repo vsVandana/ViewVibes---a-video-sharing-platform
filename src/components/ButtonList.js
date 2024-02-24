@@ -1,7 +1,7 @@
 import Button from "./Button";
 const ButtonList = () => {
     return(
-        <div className=" w-full bg-white">
+        <div className=" w-full bg-white ">
             <Button />
         </div>
     )

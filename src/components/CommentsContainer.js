@@ -41,7 +41,7 @@ const commentData = [
 
 const CommentsContainer = () => {
   return (
-    <div className='ps-20 w-[1000px]'>
+    <div className='md:ps-20 md:w-[1000px]'>
     <div className='text-xl py-1'>Comments: </div>
     <CommentList comments={commentData} />
     </div>
