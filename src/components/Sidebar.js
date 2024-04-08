@@ -49,7 +49,7 @@ const Sidebar = () => {
   return (
     <div
       className={`classify-produds z-10  h-full overflow-y-auto fixed left-0 top-0 text-gray-800 ${
-        !isMenuOpen ? "w-1/6" : "w-1/5 bg-white"
+        !isMenuOpen ? "w-1/6" : "w-1/3 bg-white"
       }`}
     >
       <div
