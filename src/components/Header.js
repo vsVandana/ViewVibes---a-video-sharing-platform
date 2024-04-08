@@ -20,35 +20,33 @@ const Header = () => {
   /////3. Caching
   
   const searchCache = useSelector((store)=>store.search)
-  const fetchSearchSuggessions = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API+ searchQuery);
-    const json = await data.json();
-    // console.log(json[1]);
-    setSuggestions(json[1]);
 
-    //Update cache
-    dispatch(
-      cacheResults({
-        [searchQuery]: json[1],
-      })
-    )
-  }
-  useEffect(()=>{
-    console.log(searchQuery)
+  useEffect(() => {
+    const fetchSearchSuggessions = async () => {
+      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+      const json = await data.json();
+      setSuggestions(json[1]);
+      dispatch(
+        cacheResults({
+          [searchQuery]: json[1],
+        })
+      );
+    };
+  
+    console.log(searchQuery);
     const timer = setTimeout(() => {
-      if(searchCache[searchQuery]){
-        setSuggestions(searchCache[searchQuery])
-      }else{
-        fetchSearchSuggessions() 
+      if (searchCache[searchQuery]) {
+        setSuggestions(searchCache[searchQuery]);
+      } else {
+        fetchSearchSuggessions();
       }
     }, 200);
-
-   return () => {
-    clearTimeout(timer);
-   };
-
-  },[searchQuery, searchCache, fetchSearchSuggessions ])
-
+  
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchQuery, searchCache, dispatch]);
+  
   const toggleMenuHandler = () => {
     console.log("Toggle menu clicked");
     dispatch(toggleMenu());
