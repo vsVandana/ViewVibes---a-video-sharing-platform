@@ -1,6 +1,6 @@
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import myLogo from "../utils/images/y-logo.png";
+import myLogo from "../utils/images/VVLogo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import {
@@ -48,27 +48,27 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`classify-produds z-10  h-full overflow-y-auto fixed left-0 top-0 ${
+      className={`classify-produds z-10  h-full overflow-y-auto fixed left-0 top-0 text-gray-800 ${
         !isMenuOpen ? "w-1/6" : "w-1/5 bg-white"
       }`}
     >
       <div
         className={`absolute left-0 top-0`}
       >
-        <div className="flex items-center pt-2">
+        <div className="flex items-center bg-white">
           <GiHamburgerMenu
             onClick={() => toggleMenuHandler()}
-            className="text-4xl mx-4 p-2 hover:cursor-pointer hover:bg-slate-200 hover:rounded-full "
+            className="text-4xl mx-4 p-2 my-4 hover:cursor-pointer hover:bg-slate-200 hover:rounded-full "
           />
           {isMenuOpen && (
             <img
-              className="w-28 ms-1 me-3 hover:cursor-pointer"
+              className="w-44 ms-1 me-3 hover:cursor-pointer"
               src={myLogo}
               alt="youtube-logo"
             />
           )}
         </div>
-        <ul className="pb-4 py-5">
+        <ul className="pb-4 py-7">
           {displayedData.map((item, index) => (
             <li
               key={index}
@@ -78,7 +78,7 @@ const Sidebar = () => {
             >
               <span
                 className={` ${
-                  !isMenuOpen ? "text-lg" : "text-2xl mx-3"
+                  !isMenuOpen ? "text-xl" : "text-2xl mx-3"
                 }`}
               >
                 {item.icon}

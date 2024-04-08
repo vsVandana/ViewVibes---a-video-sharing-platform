@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const Body = () =>{
     return(
-        <div className="flex mt-16 ml-2 relative">
+        <div className="flex mt-20 ml-2 relative">
              <div className="hidden md:block">
             <Sidebar/>
             </div>
