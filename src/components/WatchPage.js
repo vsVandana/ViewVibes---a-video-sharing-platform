@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
@@ -10,19 +10,19 @@ const WatchPage = () => {
   console.log(searchParams.get("v"));
   const dispatch = useDispatch();
 
-  const [iframeWidth, setIframeWidth] = useState(window.innerWidth * 0.75);
+  // const [iframeWidth, setIframeWidth] = useState(window.innerWidth * 0.75);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIframeWidth(window.innerWidth * 0.75);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIframeWidth(window.innerWidth * 0.75);
+  //   };
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   useEffect(() => {
     dispatch(closeMenu());
