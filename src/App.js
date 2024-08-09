@@ -1,14 +1,13 @@
 import './App.css';
-import { Provider } from 'react-redux';
-import store from './utils/store';
+import {  useSelector } from 'react-redux';
 import Header from './components/Header';
 import Body from './components/Body';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainContainer from './components/MainContainer';
 import WatchPage from './components/WatchPage';
 
-
 function App() {
+  
   const appRouter = createBrowserRouter([
     {
       path : '/',
@@ -25,13 +24,15 @@ function App() {
       ]
     }
   ])
+ 
+ const darkTheme = useSelector((state)=>state.theme.darkTheme)
   return (
-    <Provider store={store}>
-    <div className=''>
+   
+      <div className={darkTheme ? 'darktheme' : 'lighttheme'}>
+      {/* <ThemeIcon /> */}
       <Header />
       <RouterProvider router={appRouter} />
-    </div>
-    </Provider>
+      </div>
   );
 }
 

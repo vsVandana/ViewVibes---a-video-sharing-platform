@@ -25,7 +25,7 @@ const VideoContainer = () => {
 
   return (
     <div className="p-2">
-      <ul className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 ">
+      <ul className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 ">
         {videos?.map((items) => {
           return (
             <li key={items.id} className="">

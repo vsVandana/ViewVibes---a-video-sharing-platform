@@ -10,5 +10,20 @@ body{
     width: 0px;
   }
   
+  .lighttheme {
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%) !important;
+    color: black !important;
+  }
   
+  .darktheme{
+    /* background-image: linear-gradient(to right, #868f96 0%, #596164 100%) !important; */
+    background: rgb(86,87,91) !important;
+background: radial-gradient(circle, rgba(86,87,91,1) 0%, rgba(57,54,54,1) 100%) !important;
+    color: white !important;
+  }
+
+  .datkthemeBtn{
+    background: rgb(116,117,122);
+background: radial-gradient(circle, rgba(116,117,122,1) 0%, rgba(122,120,120,1) 100%);
+  }
  

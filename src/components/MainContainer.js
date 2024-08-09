@@ -1,19 +1,17 @@
 import VideoContainer from "./VideoContainer";
-// import ButtonList from "./ButtonList"
-import { useSelector } from 'react-redux';
+import ButtonList from "./ButtonList";
+import { useSelector } from "react-redux";
+
 const MainContainer = () => {
-    const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const containerClass = isMenuOpen ? "" : "md:pl-20";
+ 
+  return (
+    <div className={containerClass}>
+      <ButtonList />
+      <VideoContainer />
+    </div>
+  );
+};
 
-    if(!isMenuOpen) return (<div className="absolute md:left-20">
-    {/* <ButtonList /> */}
-    <VideoContainer />
-</div>) ;
-    return (
-
-        <div>
-            {/* <ButtonList /> */}
-            <VideoContainer/>
-        </div>
-    )
-}
 export default MainContainer;
